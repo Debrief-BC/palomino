@@ -3,7 +3,7 @@ const Web3Extend = require("web3-debrief-extend");
 const Secp256k1 = require("secp256k1");
 const CryptoJS = require('crypto-js')
 
-var web3 = new Web3("http://54.196.216.49:10101");
+var web3 = new Web3("http://34.229.57.51:10101");
 Web3Extend.extend(web3);
 
 
