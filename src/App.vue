@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <img src="./assets/logo.svg" class="logo" />
     <router-view></router-view>
   </div>
 </template>
@@ -29,5 +30,9 @@ body,
 ul {
   margin: 0;
   padding: 0;
+}
+.logo {
+  width: 200px;
+  margin: 10px;
 }
 </style>
