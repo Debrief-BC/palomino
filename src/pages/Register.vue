@@ -1,6 +1,8 @@
 <template>
   <div id="app" v-loading.fullscreen.lock="fullscreenLoading">
     <el-form class="demo-ruleForm">
+      You need register on blockchain, if you don't have DBF you can ask admin for get.
+      <el-form-item label="Address">{{address}}</el-form-item>
       <el-form-item label="Nickname">
         <el-input v-model="nickname"></el-input>
       </el-form-item>
