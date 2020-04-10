@@ -19,6 +19,12 @@ exports.getUsers = function () {
     return web3.dbf.getUsers();
 }
 
+exports.getBalance = function (address) {
+    return web3.eth.getBalance(address).then(x => {
+        return web3.utils.fromWei(x);
+    })
+}
+
 exports.sign = function (data, privateKey) {
     return web3.eth.accounts.sign(data, privateKey)
 }
@@ -39,15 +45,14 @@ exports.decrypt = function (ciphertext, key) {
 
 exports.register = function (privateKey, publicKey, nickname) {
     var data = "0x" + web3.dbf.buildRegisterData(nickname, Buffer.from(publicKey.replace("0x", ""), "hex")).toString("hex")
-
     var tx = {
         to: web3.dbf.consts.calls.register,
         data: data,
-        gas: 100000
+        gas: "100000",
+        gasPrice: "1000000000",
     }
-    web3.eth.accounts.signTransaction(tx, privateKey).then(signTx => {
-        web3.eth.sendSignedTransaction(signTx.rawTransaction)
-            .on('receipt', console.log);
+    return web3.eth.accounts.signTransaction(tx, privateKey).then(signTx => {
+        return web3.eth.sendSignedTransaction(signTx.rawTransaction);
     })
 }
 
