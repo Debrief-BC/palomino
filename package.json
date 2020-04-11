@@ -1,5 +1,5 @@
 {
-  "name": "athena",
+  "name": "palomino",
   "version": "0.0.1",
   "description": "a simple web chat base on Debrief-BC's protocol",
   "scripts": {
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Debrief-BC/athena.git"
+    "url": "git+https://github.com/Debrief-BC/palomino.git"
   },
   "author": "Alfred4Debrief",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Debrief-BC/athena/issues"
+    "url": "https://github.com/Debrief-BC/palomino/issues"
   },
-  "homepage": "https://github.com/Debrief-BC/athena#readme",
+  "homepage": "https://github.com/Debrief-BC/palomino#readme",
   "dependencies": {
     "crypto-js": "^4.0.0",
     "element-ui": "^2.13.0",
