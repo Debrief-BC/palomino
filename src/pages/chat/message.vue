@@ -1,9 +1,12 @@
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapState } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters("session", { session: "currentSession" })
+    ...mapGetters("session", { session: "currentSession" }),
+    ...mapState({
+      avatar: state => state.user.avatar
+    })
   },
   filters: {
     time(timestamps) {
@@ -27,6 +30,7 @@ export default {
           <span>{{item.timestamps | time}}</span>
         </p>
         <div class="main" :class="{ self: item.self }">
+          <div class="avatar" v-html="item.self ? avatar : session.avatar"></div>
           <div class="text">{{ item.content }}</div>
         </div>
       </li>
@@ -55,7 +59,11 @@ export default {
       background-color: #dcdcdc;
     }
   }
-
+  .avatar {
+    float: left;
+    margin: 0 10px 0 0;
+    width: 30px;
+  }
   .text {
     display: inline-block;
     position: relative;
@@ -82,6 +90,11 @@ export default {
   .self {
     text-align: right;
 
+    .avatar {
+      float: right;
+      margin: 0 0 0 10px;
+      width: 30px;
+    }
     .text {
       background-color: #b2e281;
 

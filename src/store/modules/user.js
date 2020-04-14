@@ -1,10 +1,12 @@
 const Debrief = require("../../debrief");
+const HashAvataaars = require("hash-avataaars");
 
 const state = {
     address: false,
     privateKey: false,
     publicKey: false,
     nickname: false,
+    avatar: false,
     signed: false,
 }
 
@@ -26,6 +28,7 @@ const actions = {
         return Debrief.getUserInfo(state.address).then(userInfo => {
             if (userInfo) {
                 commit('SET_NICKNAME', userInfo.Nickname);
+                commit('SET_AVATAR', HashAvataaars(userInfo.PublicKey));
                 return dispatch("session/updateSessionList", {}, { root: true }).then(() => {
                     return true;
                 })
@@ -46,6 +49,9 @@ const mutations = {
     },
     SET_NICKNAME(state, nickname) {
         state.nickname = nickname;
+    },
+    SET_AVATAR(state, avatar) {
+        state.avatar = avatar;
     },
 }
 

@@ -1,4 +1,5 @@
 const Debrief = require("../../debrief");
+const HashAvataaars = require("hash-avataaars");
 
 const state = {
     currentSessionAddress: false,
@@ -22,6 +23,7 @@ const actions = {
                         list.push({
                             address: user.Address,
                             nickname: user.Nickname,
+                            avatar: HashAvataaars(user.PublicKey),
                             key: key,
                             messages: []
                         })

@@ -30,6 +30,7 @@ export default {
         :class="{ active: item.address === currentAddress }"
         @click="select(item.address)"
       >
+        <div v-html="item.avatar" class="avatar" :alt="item.nickname"></div>
         <p class="name">{{item.nickname}}</p>
       </li>
     </ul>
@@ -39,7 +40,7 @@ export default {
 <style scoped lang="less">
 .list {
   li {
-    padding: 12px 15px;
+    padding: 5px 15px;
     border-bottom: 1px solid #292c33;
     cursor: pointer;
     transition: background-color 0.1s;
@@ -50,9 +51,17 @@ export default {
       background-color: rgba(255, 255, 255, 0.1);
     }
   }
+
+  .avatar,
   .name {
     vertical-align: middle;
     display: inline-block;
+  }
+  .avatar {
+    width: 30px;
+  }
+
+  .name {
     margin: 0 0 0 15px;
   }
 }
