@@ -1,9 +1,6 @@
-<p align="center">
-  <!--<img src="./defi-logo.svg" width="300">-->
-  <h1 align="center">Debrief</h1>
-  <h2 align="center">Palomino </h2>
-</p>  
+# Debrief
 
+## Palomino
 A web chat based on Debrief's Blockchain Protocol
 
 ## Setup Instructions
